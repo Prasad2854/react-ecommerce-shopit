@@ -1,0 +1,474 @@
+.homepage-container {
+    color: var(--text-color);
+}
+
+/* --- Banner Slider Styles --- */
+.banner-slider {
+    position: relative;
+    height: 60vh;
+    width: 95%; /* Makes it slightly narrower than the screen */
+    max-width: 1200px;
+    margin: 20px auto 0; /* Centers the banner with top margin */
+    border-radius: 20px; /* Adds circular edges */
+    overflow: hidden; /* Clips the images inside to the rounded corners */
+
+    /* Glassmorphism effect */
+    background: rgba(var(--glass-rgb), 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(var(--glass-rgb), 0.1);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.slick-slide-item {
+    position: relative;
+    height: 60vh;
+}
+
+.slick-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Custom Slick Dots */
+.slick-dots {
+    bottom: 10px;
+}
+
+.slick-dots li button:before {
+    font-size: 12px;
+    color: white;
+    opacity: 0.7;
+}
+
+.slick-dots li.slick-active button:before {
+    opacity: 1;
+    color: white;
+}
+
+
+/* --- Category Section Styles --- */
+.category-section {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.category-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.category-grid {
+    display: grid;
+    /* This creates a 4-column grid that doesn't wrap on large screens */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.category-card-link {
+    text-decoration: none;
+}
+
+.category-card {
+    padding: 0;
+    height: 200px; /* Reduced height for a more compact look */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    border: 1px solid var(--input-border);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.category-card:hover {
+    transform: scale(1.05);
+}
+
+.category-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.category-card:hover .category-card-overlay {
+    background-color: rgba(0,0,0,0.6);
+}
+
+/* Media query to make categories responsive on mobile */
+@media (max-width: 768px) {
+    .category-grid {
+        /* On smaller screens, go back to a single column */
+        grid-template-columns: 1fr;
+    }
+    .category-card {
+        height: 150px; /* Make cards a bit shorter on mobile */
+    }
+    .category-section h2 {
+        font-size: 2rem;
+    }
+}
+
+
+/* --- Featured Product Section Styles --- */
+.product-section {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.product-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.product-card {
+    background: var(--form-bg);
+    border: 1px solid var(--input-border);
+    border-radius: 15px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.hp-product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.hp-product-info {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Allows the button to stick to the bottom */
+}
+
+.hp-product-name {
+    font-size: 1.1rem;
+    margin: 0 0 0.5rem 0;
+    flex-grow: 1; /* Pushes price and button down */
+}
+
+.hp-product-price {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--btn-bg);
+    margin-bottom: 1rem;
+}
+
+.hp-add-to-cart-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: white;
+    background-color: var(--btn-bg);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: center; /* Center the button */
+    width: 90%;
+}
+
+.hp-add-to-cart-btn:hover {
+    background-color: var(--btn-hover-bg);
+}
+
+
+.product-section {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.product-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-card-link {
+    text-decoration: none;
+    color: inherit;
+    /* This ensures the link takes up the full grid cell height */
+    display: flex; 
+}
+
+.product-card {
+    background: var(--form-bg);
+    border: 1px solid var(--input-border);
+    border-radius: 15px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Ensure card fills the link */
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.hp-product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.hp-product-info {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    /* This is a key property: makes this section grow to fill the card */
+    flex-grow: 1; 
+}
+
+.hp-product-name {
+    font-size: 1.1rem;
+    margin: 0 0 0.5rem 0;
+    /* This is the magic property: it takes up all extra vertical space */
+    flex-grow: 1; 
+}
+
+.hp-product-price {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--btn-bg);
+    margin-bottom: 1rem;
+}
+
+.hp-add-to-cart-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: white;
+    background-color: var(--btn-bg);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: center;
+    width: 90%;
+}
+
+.hp-add-to-cart-btn:hover {
+    background-color: var(--btn-hover-bg);
+}
+
+.slick-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- ADD THIS NEW STYLE FOR THE VIDEO --- */
+.slick-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This makes the video cover the entire container */
+}
+
+/* --- RESPONSIVE STYLES FOR MOBILE --- */
+@media (max-width: 768px) {
+    .banner-slider, .slick-slide-item {
+        height: 40vh; /* Make banner shorter on mobile */
+    }
+
+    .category-section, .product-section {
+        padding: 2rem 1rem; /* Reduce padding on sections */
+    }
+
+    .category-section h2, .product-section h2 {
+        font-size: 2rem; /* Reduce title font size */
+    }
+
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for categories */
+        gap: 1rem;
+    }
+
+    .category-card {
+        height: 120px; /* Make category cards shorter */
+    }
+    
+    .category-card-overlay {
+        font-size: 1.1rem;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Allow smaller product cards */
+        gap: 1rem;
+    }
+}
+
+/* --- Featured Product Section Styles --- */
+.product-section {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.product-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-card {
+    background: var(--form-bg);
+    border: 1px solid var(--input-border);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* This is the key: make the card a flex container */
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.hp-product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: contain; /* Use contain to see the whole product */
+    padding: 1rem;
+    box-sizing: border-box;
+    background-color: white;
+}
+
+.hp-product-info {
+    padding: 1rem;
+    text-align: center;
+    /* This makes the info section grow to fill the card */
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.hp-product-name {
+    font-size: 1.1rem;
+    margin: 0 0 0.5rem 0;
+    /* This is the magic: the name grows to push the price/footer down */
+    flex-grow: 1;
+}
+
+/* This rule removes the default hyperlink styling */
+.product-title-link {
+    text-decoration: none;
+    color: inherit; /* Inherits the color from its parent */
+}
+
+.hp-product-price {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--btn-bg);
+    margin-bottom: 1rem;
+}
+
+.hp-product-footer {
+    padding: 0 1rem 1.5rem 1rem;
+}
+
+.hp-add-to-cart-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: white;
+    background-color: var(--btn-bg);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Make button full width of its container */
+}
+
+.hp-add-to-cart-btn:hover {
+    background-color: var(--btn-hover-bg);
+}
+
+/* Add this to HomePage.css */
+.hp-product-footer .product-card-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.hp-product-footer .btn-add-to-cart,
+.hp-product-footer .btn-buy-now {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.hp-product-footer .btn-add-to-cart {
+    background: none;
+    border: 2px solid var(--btn-bg);
+    color: var(--btn-bg);
+}
+
+.hp-product-footer .btn-buy-now {
+    background-color: var(--btn-bg);
+    color: white;
+}

@@ -1,0 +1,70 @@
+.footer {
+    /* --- Navbar style mirroring --- */
+    width: 95%;
+    max-width: 1200px;
+    margin: 2rem auto 20px auto; /* Vertical margins for spacing, auto for horizontal center */
+    border-radius: 15px;
+    border: 1px solid rgba(var(--glass-rgb), 0.18); /* Full border instead of just border-top */
+    
+    /* Glassmorphism effect */
+    background: rgba(var(--glass-rgb), 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    
+    /* General styles */
+    padding: 20px 0;
+    color: var(--text-color);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    
+    /* --- Centered column layout --- */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Space between logo and copyright */
+}
+
+.footer-logo-section {
+    display: flex;
+    align-items: center;
+}
+
+.footer-logo-link {
+    display: flex;
+    align-items: center;
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.footer-logo-svg {
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+}
+
+.footer-copyright {
+    font-size: 0.9rem;
+    color: var(--text-color-light);
+    text-align: center;
+}
+
+/* The .footer-links class is no longer needed and can be removed */
+
+@media (max-width: 768px) {
+    .footer {
+        width: 100%;
+        border-radius: 0; /* Full width on mobile */
+        margin-bottom: 0;
+    }
+    .footer-copyright {
+        font-size: 0.8rem;
+    }
+}

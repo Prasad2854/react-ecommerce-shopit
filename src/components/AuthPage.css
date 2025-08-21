@@ -1,0 +1,243 @@
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 70px - 4rem);
+    font-family: Arial, sans-serif;
+    padding: 20px 0;
+}
+
+.auth-form-wrapper {
+    background: rgba(var(--glass-rgb), 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(var(--glass-rgb), 0.12);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border-radius: 15px;
+    padding: 40px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    transition: max-width 0.3s ease, padding 0.3s ease;
+}
+
+.auth-form-wrapper.signup {
+    max-width: 380px;
+    padding: 35px;
+}
+
+.auth-form-wrapper h2 {
+    margin-bottom: 35px;
+    color: var(--text-color);
+    font-size: 26px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    text-align: left;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text-color-light);
+}
+
+.form-group input {
+    width: 100%;
+    font-size: 16px;
+    color: var(--text-color);
+    padding: 14px 10px;
+    border: none;
+    border-radius: 0;
+    border-bottom: 2px solid rgba(var(--glass-rgb), 0.3);
+    background-color: transparent;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-bottom-color: var(--btn-bg);
+    box-shadow: none;
+}
+
+.form-group input::placeholder {
+    color: var(--text-color-light);
+    opacity: 0.7;
+}
+
+.error-text {
+    color: #e74c3c;
+    font-size: 12px;
+    font-weight: 500;
+    padding-top: 5px;
+    display: block;
+}
+
+.form-group input.error {
+    border-bottom-color: #e74c3c;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--btn-bg);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 30px;
+}
+
+.submit-btn:hover {
+    background-color: var(--btn-hover-bg);
+    transform: translateY(-2px);
+}
+
+.toggle-text {
+    margin-top: 25px;
+    color: var(--text-color-light);
+}
+
+.toggle-link {
+    color: var(--btn-bg);
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.api-error {
+    background-color: rgba(231, 76, 60, 0.1);
+    border: 1px solid #e74c3c;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Add these new styles to AuthPage.css */
+
+/* Style for the button when it's disabled */
+.submit-btn:disabled {
+    background-color: var(--btn-hover-bg);
+    cursor: not-allowed;
+    transform: none; /* Disable the hover effect */
+}
+
+/* A simple CSS spinner */
+.loader {
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #ffffff;
+    animation: spin 1s ease-in-out infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.password-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.password-wrapper input {
+    /* Add some padding on the right to make space for the icon */
+    padding-right: 40px; 
+}
+
+.password-toggle-btn {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-color-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.social-login-divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--text-color-light);
+    margin: 25px 0;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.social-login-divider::before,
+.social-login-divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--input-border);
+}
+
+.social-login-divider span {
+    padding: 0 15px;
+}
+
+.social-login-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
+}
+
+.social-login-btn svg {
+    margin-right: 12px;
+}
+
+.google-btn {
+    background-color: var(--social-btn-bg);
+    color: var(--social-btn-text);
+    border: 1px solid var(--input-border);
+}
+
+.google-btn:hover {
+    background-color: var(--social-btn-hover-bg);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.auth-logo-svg {
+    height: 40px; /* Adjust size as needed */
+    width: 40px;
+    margin-bottom: 0.1rem; /* Space between logo and title */
+}
+
+/* Make the form wrapper a flex column to easily center the logo */
+.auth-form-wrapper {
+    /* ... (keep existing background, padding, etc.) ... */
+    display: flex; /* Add this */
+    flex-direction: column; /* Add this */
+    align-items: center; /* Add this */
+}
+
+/* Ensure the form itself takes up the full width */
+.auth-form-wrapper form {
+    width: 100%;
+}

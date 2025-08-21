@@ -1,0 +1,98 @@
+.reviews-section {
+    margin-top: 3rem;
+    color: var(--text-color);
+}
+
+.reviews-section h2, .reviews-section h3 {
+    margin-bottom: 1.5rem;
+}
+
+.review-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.review-item {
+    background: var(--form-bg);
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid var(--input-border);
+}
+
+.review-item strong {
+    font-size: 1.1rem;
+}
+
+.review-item p {
+    margin: 0.5rem 0;
+}
+
+.review-item small {
+    color: var(--text-color-light);
+}
+
+.review-form-container {
+    background: var(--form-bg);
+    padding: 2rem;
+    border-radius: 15px;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--input-border);
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+.submit-review-btn {
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: var(--btn-bg);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.success-message { color: #2ecc71; }
+.error-message { color: #e74c3c; }
+
+/* Star Rating Styles */
+.star-rating {
+    display: flex;
+}
+
+.star-rating button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+}
+
+.star-rating .on .star {
+    color: #f39c12;
+    font-size: 1.5rem;
+}
+
+.star-rating .off .star {
+    color: #ccc;
+    font-size: 1.5rem;
+}

@@ -1,0 +1,95 @@
+.shipping-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    color: var(--text-color);
+}
+
+.form-wrapper {
+    background: rgba(var(--glass-rgb), 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(var(--glass-rgb), 0.18);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border-radius: 15px;
+    padding: 2rem 3rem;
+}
+
+.form-wrapper h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--text-color-light);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--input-border);
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    box-sizing: border-box;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--input-focus-border);
+    box-shadow: 0 0 0 2px rgba(var(--input-focus-border), 0.25);
+}
+
+.continue-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: var(--btn-bg);
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.continue-btn:hover {
+    background-color: var(--btn-hover-bg);
+}
+
+/* Styles for Payment Page Radio Buttons */
+.payment-options {
+    background: var(--input-bg);
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--input-border);
+}
+
+.payment-options label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .shipping-container {
+        padding: 1rem;
+    }
+    .form-wrapper {
+        padding: 1.5rem;
+    }
+    .form-wrapper h1 {
+        font-size: 1.5rem;
+    }
+}

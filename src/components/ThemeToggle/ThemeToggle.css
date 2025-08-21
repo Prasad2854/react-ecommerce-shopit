@@ -1,0 +1,21 @@
+.theme-toggle-btn {
+    background: none;
+    border: 1px solid transparent;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.theme-toggle-btn:hover {
+    background-color: var(--toggle-hover-bg);
+}
+
+.theme-toggle-btn svg {
+    width: 20px;
+    height: 20px;
+}
