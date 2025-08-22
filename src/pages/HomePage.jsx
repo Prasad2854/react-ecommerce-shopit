@@ -123,7 +123,7 @@ const ProductGrid = () => {
     };
 
     const handleBuyNow = (product) => {
-        if (user) {
+        if (user) { 
             buyNow(product);
             navigate('/shipping');
         } else {
