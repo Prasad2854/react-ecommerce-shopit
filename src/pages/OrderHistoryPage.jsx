@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useChatbot } from '../context/ChatbotContext'; 
+import API_URL from '../apiConfig';
 import './OrderHistoryPage.css';
 
 const OrderHistoryPage = () => {
@@ -13,7 +14,7 @@ const OrderHistoryPage = () => {
     // Moved fetchOrders outside useEffect so we can call it after cancellation
     const fetchOrders = async () => {
         try {
-            const response = await fetch('http://localhost:5001/api/orders/myorders', {
+            const response = await fetch(`${API_URL}/api/orders/myorders`, {
                 headers: { 'x-auth-token': token },
             });
             if (!response.ok) throw new Error('Failed to fetch orders.');
@@ -37,7 +38,7 @@ const OrderHistoryPage = () => {
         // 3. Define the action to be taken on confirmation
         const confirmAction = async () => {
             try {
-                const response = await fetch(`http://localhost:5001/api/orders/${orderId}`, {
+                const response = await fetch(`${API_URL}/api/orders/${orderId}`, {
                     method: 'DELETE',
                     headers: { 'x-auth-token': token },
                 });

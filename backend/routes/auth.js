@@ -87,12 +87,12 @@ router.get('/google', passport.authenticate('google', { scope: ['profile', 'emai
 // @desc    Google auth callback
 router.get('/google/callback', passport.authenticate('google', { failureRedirect: '/', session: false }),
     (req, res) => {
-        // Successful authentication, create JWT
         const payload = { user: { id: req.user.id } };
         const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '5h' });
-
-        // Redirect to a page on the frontend that will handle the token
-        res.redirect(`http://localhost:5173/auth/success?token=${token}`);
+        
+        // --- THIS IS THE FIX ---
+        // Redirect to your live GitHub Pages URL
+        res.redirect(`https://your-username.github.io/react-ecommerce-shopit/#/auth/success?token=${token}`);
     }
 );
 module.exports = router;

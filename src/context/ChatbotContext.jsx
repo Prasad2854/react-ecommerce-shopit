@@ -1,6 +1,6 @@
 import React, { createContext, useState, useContext } from 'react';
 import { useAuth } from './AuthContext';
-
+import API_URL from '../apiConfig'; 
 const ChatbotContext = createContext();
 export const useChatbot = () => useContext(ChatbotContext);
 
@@ -76,7 +76,7 @@ const ChatbotProvider = ({ children }) => {
         const endpoint = step === 'login-password' ? 'login' : 'register';
         const payload = endpoint === 'login' ? { email: formData.email, password: formData.password } : formData;
         try {
-            const response = await fetch(`http://localhost:5001/api/auth/${endpoint}`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+            const response = await fetch(`${API_URL}/api/auth/${endpoint}`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
             const data = await response.json();
             if (!response.ok) throw new Error(data.msg || 'An error occurred.');
             if (endpoint === 'register') {

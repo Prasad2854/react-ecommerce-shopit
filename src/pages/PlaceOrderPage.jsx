@@ -3,6 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 import { useChatbot } from '../context/ChatbotContext'; // 1. Import the chatbot hook
+import API_URL from '../apiConfig'; 
 import './PlaceOrderPage.css';
 
 const PlaceOrderPage = () => {
@@ -23,7 +24,7 @@ const PlaceOrderPage = () => {
         setIsLoading(true);
         setError('');
         try {
-            const res = await fetch('http://localhost:5001/api/orders', {
+            const res = await fetch(`${API_URL}/api/orders`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

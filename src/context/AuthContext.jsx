@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
-
+import API_URL from '../apiConfig'; 
 const AuthContext = createContext();
 export const useAuth = () => useContext(AuthContext);
 
@@ -12,7 +12,7 @@ const AuthProvider = ({ children }) => {
         const fetchUserDataOnLoad = async () => {
             if (token) {
                 try {
-                    const response = await fetch('http://localhost:5001/api/user/me', {
+                    const response = await fetch(`${API_URL}/api/user/me`, {
                         headers: { 'x-auth-token': token },
                     });
                     const userData = await response.json();
