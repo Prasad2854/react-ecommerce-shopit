@@ -1,6 +1,7 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const passport = require('passport');
 const User = require('../models/User');
 
 const router = express.Router();
@@ -10,16 +11,12 @@ const router = express.Router();
 router.post('/register', async (req, res) => {
     const { name, email, password } = req.body;
 
-    // --- NEW: Add Backend Validation ---
     if (!name || !email || !password) {
         return res.status(400).json({ msg: 'Please enter all fields' });
     }
-
     if (password.length < 8) {
         return res.status(400).json({ msg: 'Password must be at least 8 characters' });
     }
-    // You can add the same regex checks here as you have on the frontend for extra security
-    // --- End of New Validation ---
 
     try {
         let user = await User.findOne({ email });
@@ -38,11 +35,9 @@ router.post('/register', async (req, res) => {
     }
 });
 
-
 // @route   POST /api/auth/login
 // @desc    Authenticate user and get token
 router.post('/login', async (req, res) => {
-    //await new Promise(resolve => setTimeout(resolve, 10000)); // 2-second delay
     const { email, password } = req.body;
 
     try {
@@ -56,7 +51,7 @@ router.post('/login', async (req, res) => {
             return res.status(400).json({ msg: 'Invalid credentials' });
         }
 
-        const payload = { user: { id: user.id } };
+        const payload = { user: { id: user.id, name: user.name } }; // Add name to payload
 
         jwt.sign(
             payload,
@@ -74,11 +69,6 @@ router.post('/login', async (req, res) => {
     }
 });
 
-
-const passport = require('passport');
-
-// ... at the end of the file, before module.exports
-
 // @route   GET /api/auth/google
 // @desc    Authenticate with Google
 router.get('/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
@@ -87,12 +77,13 @@ router.get('/google', passport.authenticate('google', { scope: ['profile', 'emai
 // @desc    Google auth callback
 router.get('/google/callback', passport.authenticate('google', { failureRedirect: '/', session: false }),
     (req, res) => {
-        const payload = { user: { id: req.user.id } };
+        const payload = { user: { id: req.user.id, name: req.user.name } };
         const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '5h' });
         
-        // --- THIS IS THE FIX ---
         // Redirect to your live GitHub Pages URL
+        // IMPORTANT: Replace with your actual GitHub username and repo name
         res.redirect(`https://your-username.github.io/react-ecommerce-shopit/#/auth/success?token=${token}`);
     }
 );
+
 module.exports = router;
