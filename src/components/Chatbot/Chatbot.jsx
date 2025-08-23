@@ -3,6 +3,7 @@ import { useChatbot } from '../../context/ChatbotContext';
 import './Chatbot.css';
 import Logo from '../../assets/logo.svg?react';
 
+
 // --- SVG Icon Components ---
 const ChatIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" height="28" viewBox="0 0 24 24" width="28" fill="white">
